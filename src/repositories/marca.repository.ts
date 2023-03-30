@@ -10,7 +10,6 @@ export class MarcaRepository extends BaseRepository {
     let response = {} as IResponseRepository
     try {
       const _result = await this.execProcedure('get_marcas', [[]])
-      console.log('result query', _result.result)
       const resultString = JSON.stringify(_result.result)
       const result = JSON.parse(resultString)
       response.data = result
@@ -28,7 +27,6 @@ export class MarcaRepository extends BaseRepository {
     try {
       const params = JSON.stringify(_add)
       const _result = await this.execProcedure('post_add_marcas', [params])
-      console.log('result query', _result)
       const resultString = JSON.stringify(_result.result)
       const result = JSON.parse(resultString)
       if (result.length) {

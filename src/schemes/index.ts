@@ -9,6 +9,8 @@ import { Usuario } from './seguridad/usuario'
 import { Marcas } from './marca'
 import { TipoVehiculo } from './tipo-vehiculo';
 import { Documentos } from './documentos';
+import { Grupo } from './grupo';
+import { Combustible } from './combustible';
 
 export default [
   Organizacion,
@@ -23,5 +25,7 @@ export default [
   Modelos,
   Vehiculo,
   TipoVehiculo,
-  Documentos
+  Documentos,
+  Grupo,
+  Combustible
 ]

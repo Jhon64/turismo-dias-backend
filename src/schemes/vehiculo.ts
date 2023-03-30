@@ -25,15 +25,17 @@ export class Vehiculo {
   @Column({ nullable: false, type: 'int' })
   año?: number
 
-  @Column({ name: 'estado', default: 1 })
-  estado?: number
+  @Column({ name: 'estado', nullable:true })
+  estado?: string
   @Column({ name: 'estado_descripcion',nullable:true })
   estadoDescripcion?: string
 
   @Column({ name: 'provincia_registro', nullable: false, type: 'varchar' })
   provinciaRegistro?: string
-  @Column({ nullable: false, type: 'varchar' })
+  @Column({ nullable: true, type: 'varchar' })
   fotografia?: string
+  @Column({ nullable: false, type: 'varchar' })
+  propiedad?: string
   @Column({ name: 'tarjeta_circulacion', nullable: false, type: 'varchar' })
   tarjetaCirculacion?: string
   @Column({
@@ -65,9 +67,10 @@ export class Vehiculo {
   cilindros?: number
   @Column({ nullable: false, type: 'varchar' })
   cilindrada?: string
-  @Column({ nullable: false, type: 'varchar' })
-  combustible?: string
-
+  @Column({ name:'combustible_id',nullable: false, type: 'int' })
+  combustibleID?: number
+  @Column({name:'grupo_id', nullable: false, type: 'int' })
+  grupoID?: number
   @ManyToOne(() => TipoVehiculo)
   @JoinColumn({ name: 'tipo_vehiculo_id' })
   tipoVehiculo?: TipoVehiculo

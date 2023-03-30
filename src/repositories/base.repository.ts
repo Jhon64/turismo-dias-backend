@@ -30,7 +30,7 @@ export class BaseRepository{
       }
       const h = ['SELECT', '*', 'FROM'].join(' ')
       const funcToExec = `${h} ${procedureName}(${args1}) as output`
-      console.log('Ejecutando función ::', funcToExec)
+    //   console.log('Ejecutando función ::', funcToExec)
       let queryResult: QueryResult
 
       const startTime = Date.now()
@@ -38,7 +38,7 @@ export class BaseRepository{
           queryResult = await (await this.pg).query(funcToExec, finalArgs)
       } catch (error: any) {
           error = String(error)
-          console.log('error al ejecutar sp')
+        //   console.log('error al ejecutar sp')
           throw error
       }
 
