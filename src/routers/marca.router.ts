@@ -25,7 +25,7 @@ _router.post(
    _path + '/register',
    async (req: Request, res: Response, next: NextFunction) => {
      const body:Partial<Marcas> = req.body
-     if (!body.slug || !body.nombre ) {
+     if ( !body.nombre ) {
      return  res.status(400).json({ message: 'los parámetros[slug,nombre] no se han pasado' })
      }
      try {

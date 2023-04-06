@@ -1,8 +1,5 @@
-import { UsuarioDTO } from '../dto/request/usuario.dto'
 import { IResponseRepository } from '../helpers/repository.helpers'
-import { IUsuarioLogin } from '../interfaces/usuario.interface'
 import { Persona } from '../schemes/persona'
-import { JWT } from '../settings/JWT'
 import { BaseRepository } from './base.repository'
 
 export class PersonaRepository extends BaseRepository {

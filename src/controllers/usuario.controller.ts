@@ -53,6 +53,7 @@ export class UsuarioController {
         data = makeController(500, null, result.error || 'Error al registrar')
       }
     } catch (error) {
+      console.log(error)
       data = makeController(500, null, error, true)
     }
     return data

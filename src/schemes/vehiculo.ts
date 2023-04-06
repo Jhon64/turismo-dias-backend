@@ -34,6 +34,8 @@ export class Vehiculo {
   provinciaRegistro?: string
   @Column({ nullable: true, type: 'varchar' })
   fotografia?: string
+  @Column({ name:'vin_sin',nullable: true, type: 'varchar' })
+  vinSin?: string
   @Column({ nullable: false, type: 'varchar' })
   propiedad?: string
   @Column({ name: 'tarjeta_circulacion', nullable: false, type: 'varchar' })

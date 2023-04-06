@@ -12,7 +12,7 @@ export class UsuarioRepository extends BaseRepository {
   async usuariosAll(): Promise<IResponseRepository> {
     let response = {} as IResponseRepository
     try {
-      const data = await this.execProcedure('get_usuarios', [[]])
+      const data = await this.execProcedure('seguridad.get_usuarios', [[]])
       const resultString = JSON.stringify(data.result)
       const result = JSON.parse(resultString)
 
@@ -30,7 +30,7 @@ export class UsuarioRepository extends BaseRepository {
     let response = {} as IResponseRepository
     try {
       const params = JSON.stringify(usuario)
-      const data = await this.execProcedure('login_usuario', [params])
+      const data = await this.execProcedure('seguridad.login_usuario', [params])
       const resultString = JSON.stringify(data.result)
       const result = JSON.parse(resultString)
       console.log(result)
@@ -60,10 +60,12 @@ export class UsuarioRepository extends BaseRepository {
     let response = {} as IResponseRepository
     try {
       const params = JSON.stringify(usuario)
+      console.log('args a enviar',params)
       const data = await this.execProcedure('seguridad.post_add_usuario', [
         params,
       ])
       const resultString = JSON.stringify(data.result)
+     
       const result = JSON.parse(resultString)
       if (result.length) {
         const user = { ...result[0] }

@@ -18,9 +18,9 @@ export class Usuario extends BaseEntity {
   @Column({ nullable: false, type: 'varchar' })
   password?: string
   @Column('int', { name: 'filiales_ids', array: true,nullable:true })
-  filialesIDS?: number[]
+  filialesIDs?: number[]
   @Column('int', { name: 'roles_ids', array: true,nullable:true })
-  rolesIDS?: number[]
+  rolesIDs?: number[]
 
   @OneToOne(() => Persona)
   @JoinColumn({ name: 'persona_id' })
