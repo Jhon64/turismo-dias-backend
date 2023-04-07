@@ -65,7 +65,6 @@ export class UsuarioRepository extends BaseRepository {
         params,
       ])
       const resultString = JSON.stringify(data.result)
-     
       const result = JSON.parse(resultString)
       if (result.length) {
         const user = { ...result[0] }
