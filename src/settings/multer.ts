@@ -2,7 +2,11 @@ import multer from "multer"
 import * as fs from 'fs';
 const storage = multer.diskStorage({
    destination: function (req, file, cb) {
-      const path = 'storage/vehiculos'
+      console.log('file',file)
+      let path = 'storage/vehiculos'
+      if (file.fieldname === "documentos") { // if uploading resume
+         path='storage/documentos'
+       }
       try {
          fs.access(path, fs.constants.F_OK, (err => { //verificamos si existe la carpeta
             if (err) {
@@ -30,8 +34,12 @@ const storage = multer.diskStorage({
       const array = file.originalname.split('.');
       const ext = array[array.length - 1];
       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+      let urlFile='file' + '-' + uniqueSuffix + '.' + ext
+      if (file.fieldname === "documentos") { // if uploading resume
+         urlFile='documento' + '-' + uniqueSuffix + '.' + ext
+       }
       //Calling the callback passing the random name generated with the original extension name
-      cb(null, 'file' + '-' + uniqueSuffix + '.' + ext);
+      cb(null, urlFile);
    }
  })
  

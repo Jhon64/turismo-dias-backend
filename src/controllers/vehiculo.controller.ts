@@ -28,7 +28,7 @@ export class VehiculoController {
    try {
      const result = await this._repository.register(add)
      if (result.status == 'OK') {
-       data = makeController(200, result.data, 'marca Registrada')
+       data = makeController(200, result.data, 'vehiculo Registrado')
      } else {
        data = makeController(500, null, result.error || 'Error al registrar')
      }
@@ -37,4 +37,19 @@ export class VehiculoController {
    }
    return data
  }  
+
+ async addDocumentos(add:any) {
+  let data = {} as IResponseController
+  try {
+    const result = await this._repository.addDocumentos(add)
+    if (result.status == 'OK') {
+      data = makeController(200, result.data, ' Registrada')
+    } else {
+      data = makeController(500, null, result.error || 'Error al registrar')
+    }
+  } catch (error) {
+    data = makeController(500, null, error, true)
+  }
+  return data
+}  
 }
